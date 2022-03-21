@@ -5,10 +5,11 @@ from stable_baselines3 import SAC
 from hyperparams import PARAMS_ZOO
 
 from callback_fft import FFTCallback
+from callback_fft_eval import FFTEvalCallback
 
 env = gym.make('Pendulum-v0')
 
-callback = FFTCallback()
+callback = FFTEvalCallback(gym.make('Pendulum-v0'))
 
 model = SAC(
     policy=PARAMS_ZOO["policy"],
